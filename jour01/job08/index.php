@@ -7,16 +7,15 @@
     <title>Jour01 - Job08 - Function "Sommenombrespremiers"</title>
     <!-- Appeler le fichier script.js dans la balise head. -->
     <script src="script.js"></script>
-    <style>
+     <style>
         body {
             background-color: #f2f2f2;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         form {
             display: flex;
@@ -39,13 +38,24 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        form input[type="number"] {
+            min-height: 20px;
+            width: 50px;
+            font-size: 1rem;
+        }
         form input[type="submit"]:hover {
             background-color: #45a049;
         }
         #result {
-            margin: 10px;
-        }
-    </style>
+            border: 1px solid black;
+            width: 300px;
+            min-height: 20px;
+            padding: 0.5rem;
+            margin: 5rem auto 0;
+            text-align: center;
+        }  
+
+    </style> 
     <!-- Créez une fonction “sommenombrespremiers” qui prend en paramètres deux variables. Si ces deux variables sont des nombres premiers, alors la fonction retourne leur somme. Sinon, la fonction retourne false. -->
 </head>
 <body>
@@ -60,7 +70,7 @@
             <input type="submit" value="Addition">
         </form>
     </div>
-    <div id="result"></div>
+    <p id="result" class="set"></p>
 
 </body>
 </html>

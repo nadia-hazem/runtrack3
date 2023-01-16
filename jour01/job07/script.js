@@ -1,8 +1,7 @@
 // Jour01 - Job07 - Fonction "jourtravaille"
 // ////////////////////////////////////////
 
-// Créez une fonction “jourtravaille” qui prend en paramètre une date au format Date. Si la date correspond à un jour férié de l’année 2020, la fonction affiche “Le $jour $mois $année est un jour férié”. Si elle correspond à un samedi ou un dimanche, alors le message affiché est “Non, $jour $mois $année est un week-end”, sinon afficher “Oui, $jour $mois $année est un jour travaillé”. $jour correspond au numéro du jour, $mois au mois et $année à l’année. Les jours fériés sont référencés sur https://demarchesadministratives.fr/actualites/calendrier-des-jours-feries-2019-2020-2
-021
+// Créez une fonction “jourtravaille” qui prend en paramètre une date au format Date. Si la date correspond à un jour férié de l’année 2020, la fonction affiche “Le $jour $mois $année est un jour férié”. Si elle correspond à un samedi ou un dimanche, alors le message affiché est “Non, $jour $mois $année est un week-end”, sinon afficher “Oui, $jour $mois $année est un jour travaillé”. $jour correspond au numéro du jour, $mois au mois et $année à l’année. Les jours fériés sont référencés sur https://demarchesadministratives.fr/actualites/calendrier-des-jours-feries-2019-2020-2 021
 
 // Déclarez une fonction “jourtravaille” qui prend en paramètre une date au format Date.
 
@@ -71,15 +70,3 @@ jourtravaille(new Date(2020, 0, 6));
 jourtravaille(new Date(2020, 0, 7));
 jourtravaille(new Date(2020, 0, 8));
 jourtravaille(new Date(2020, 0, 9));
-jourtravaille(new Date(2020, 0, 10));
-jourtravaille(new Date(2020, 0, 11));
-jourtravaille(new Date(2020, 0, 12));
-jourtravaille(new Date(2020, 0, 13));
-jourtravaille(new Date(2020, 0, 14));
-jourtravaille(new Date(2020, 0, 15));
-jourtravaille(new Date(2020, 0, 16));
-jourtravaille(new Date(2020, 0, 17));
-jourtravaille(new Date(2020, 0, 18));
-jourtravaille(new Date(2020, 0, 19));
-jourtravaille(new Date(2020, 0, 20));
-jourtravaille(new Date(2020, 0, 21));

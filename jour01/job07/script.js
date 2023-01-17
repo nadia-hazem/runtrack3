@@ -6,7 +6,6 @@
 // Déclarez une fonction “jourtravaille” qui prend en paramètre une date au format Date.
 
 // Il faut noter que cette façon de déclarer une date est utilisée dans le constructeur de la classe Date de JavaScript, qui prend trois arguments: l'année, le mois (indexé à partir de 0) et le jour.
-
 // Cela signifie que new Date(2020, 0, 21) crée une nouvelle instance de la classe Date qui représente le 21 janvier 2020.
 
 // Les jours sont indexés à partir de 1

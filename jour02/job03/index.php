@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jour02 - Job02 - Fonction "Afficher/cacher"</title>
+    <title>Jour02 - Job03 - Compteur</title>
     <script src="script.js"></script>
     <style>
         body {background-color: #f5f5f5;}
@@ -23,10 +23,8 @@
             align-items: center;
             width: 100%; 
             height: 100px;
-
         }
-        #citation {
-            display: none;
+        #compteur {
             font-size: 2rem; 
             font-weight: 700; 
             color: #333; 
@@ -38,27 +36,30 @@
             font-size: 1.2rem; 
             font-weight: 700; 
             color: #fff; 
-            background-color: green; 
+            background-color: #333; 
             border: none; 
             border-radius: 5px; 
             cursor: pointer;
         }
-        button:hover { background-color: #008000ad;}
-        button.active:hover { background-color: #666;}
-        button.active { background-color: #333;}
+        button:hover {
+            background-color: #555;
+        }
         .set {
-            min-height: 30px;
+            height: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Fonction "Afficher/cacher"</h1>
+    <h1>Fonction "Compteur"</h1>
         <div class="col">
-            <article id="citation">L'important n'est pas la chute, mais l'atterrissage.</article>
-        </div>
-        <div class="col">
-            <button id="button" class="active">Afficher/cacher citation</button>
+            <h1 id="compteur"></h1>
+            <div class="set">
+                <button id="button">Incrémenter</button>
+            </div>
+            <div class="set">
+                <p id="compteur" class="set"></p>
+            </div>
         </div>
     </div>
 </body>

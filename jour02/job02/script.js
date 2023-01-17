@@ -14,17 +14,22 @@ document.addEventListener("DOMContentLoaded", function() {
     let button = document.getElementById("button");
     let article = document.getElementById("citation");
 
+    let buttonState = 0;
+
     function showhide() {
-        // Si l'article est caché, le montrer et changer le texte du bouton
-        if (article.style.display === "none") {
+        if (buttonState % 2 === 0) {
             article.style.display = "block";
             button.innerHTML = "Cacher citation";
+            button.classList.remove("active");
             console.log("L'important n'est pas la chute, mais l'atterrissage.");
         } else {
             article.style.display = "none";
             button.innerHTML = "Afficher citation";
-            console.clear();
+            button.classList.add("active");
+            console.log(" ");
         }
+        buttonState++;
     }
+    // Ajoute un écouteur d'événement au clic sur le bouton
     button.addEventListener("click", showhide);
 });

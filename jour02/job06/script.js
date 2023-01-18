@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if (konamiIndex === konami.length) {
                 // Konami saisi avec succès
                 // On cache le display
-                display.style.display = "none";             
-                
+                display.style.display = "none";          
+                body.requestFullscreen.justifyContent = "space-between";
                 // Premier rang
                 const firstRow = document.createElement("div");
                 firstRow.style.display = "flex";
@@ -94,10 +94,69 @@ document.addEventListener("DOMContentLoaded", function() {
                 col2.style.height = "auto";
                 col2.style.backgroundColor = "#336699";
                 col2.style.color = "#fff";
-                col2.style.paddingTop = "20%";
                 col2.justifyContent = "center";
                 col2.alignItems = "center";
                 col2.alignContent = "strech";
+                // set couleur des icons
+                let icons = document.querySelectorAll('.fa');
+                icons.forEach(function(icon) {
+                icon.style.color = 'white';
+                });
+                // Ajouter menu icon à col2
+                const menuRow = document.createElement("div");
+                menuRow.style.display = "flex";
+                menuRow.style.textAlign = "center";
+                menuRow.style.flexDirection = "row";
+                menuRow.style.justifyContent = "center";
+                /* menuRow.style.alignItems = "space-between";
+                menuRow.style.alignContent = "space-between"; */
+                menuRow.style.width = "100%";
+                menuRow.style.marginBottom = "3em";
+                menuRow.classList.add("row");
+
+                const menuCol = document.createElement("div");
+                menuCol.classList.add("col-2");
+
+                const menuList = document.createElement("ul");
+                menuList.style.listStyleType = "none";
+                menuList.style.marginTop = "3em";
+
+                const link1 = document.createElement("li");
+                link1.style.display = "inline-block";
+                link1.style.width = '20%';
+                link1.innerHTML = "<a href='index.php'><span style='color:white'><i class='fa-solid fa-house'></i></span></a>";
+
+                const link2 = document.createElement("li");
+                link2.style.display = "inline-block";
+                link2.style.width = '20%';
+                link2.innerHTML = "<a href='https://github.com/nadia-hazem' target='_blank'><span style='color:white'><i class='fa-brands fa-github-alt'></i></span></a>";
+
+                const link3 = document.createElement("li");
+                link3.style.display = "inline-block";
+                link3.style.width = '20%';
+                link3.innerHTML = "<a href='https://pictelle.com'><span style='color:white'><i class='fa-brands fa-wordpress' target='_blank'></i></span></a>";
+
+                const link4 = document.createElement("li");
+                link4.style.display = "inline-block";
+                link4.style.width = '20%';
+                link4.innerHTML = "<a href='https://www.linkedin.com/in/pictelle/' target='_blank'><span style='color:white'><i class='fa-brands fa-linkedin-in'></i></span></a>";
+
+                const link5 = document.createElement("li");
+                link5.style.display = "inline-block";
+                link5.style.width = '20%';
+                link5.innerHTML = "<a href='https://laplateforme.io' target='_blank'><img src='img/iconplateforme.png' style='width:40px; vertical-align: bottom;'></a>";
+
+                menuList.appendChild(link1);
+                menuList.appendChild(link2);
+                menuList.appendChild(link3);
+                menuList.appendChild(link4);
+                menuList.appendChild(link5);
+
+                menuCol.appendChild(menuList);
+                menuRow.appendChild(menuCol);
+
+                col2.appendChild(menuRow);
+
                 // Ajouter texte deuxième colonne
                 h1 = document.createElement("h1");
                 h1.style.cssText = "font-size: 1.5em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.2em; line-height: 1.2em; margin: auto;";

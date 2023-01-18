@@ -1,4 +1,4 @@
-// Jour03 - Job01 - button appear/desappear
+// Jour03 - Job01 - buttons show/hide JQuery
 
 // Créez une balise <button> en JQuery et sélectionnez-la dans votre code JavaScript.
 // En cliquant sur le bouton, vous devrez faire apparaître le texte sur votre page HTML :

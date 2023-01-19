@@ -1,6 +1,19 @@
 // Jour04 - Job01 - Fetch
 /////////////////////////
 
+let style = document.createElement('style');
+style.innerHTML = `
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}`;
+
+document.head.appendChild(style);
+
 // s'assure que le DOM est entièrement chargé avant d'éxecuter le code
 document.addEventListener("DOMContentLoaded", function() {
 

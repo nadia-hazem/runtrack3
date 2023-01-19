@@ -1,5 +1,5 @@
 // Jour04 - Job02 - “jsonValueKey()”
-/////////////////////////
+////////////////////////////////////
 
 // Créez une fonction javascript “jsonValueKey()” qui prend en paramètre une chaîne de caractères au format json et une clé.
 // Cette fonction retourne la valeur liée à cette clé dans la chaîne de caractères.

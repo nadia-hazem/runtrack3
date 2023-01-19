@@ -8,13 +8,13 @@
 // Un bouton “Recommencer” apparaît et permet de relancer une partie.
 
 $(document).ready(function() {
-    
+
     // Récupération des éléments HTML
-    const game = document.getElementById("#game");
+    const game = document.getElementById("game");
     const grid = document.querySelector(".grid");
     const tiles = document.querySelectorAll(".tile");
     const emptyTile = document.querySelector(".empty");
-    const restartBtn = document.getElementById("#restartBtn");
+    const restartBtn = document.getElementById("restartBtn");
 
     // Tableau pour stocker l'emplacement des morceaux de logo
     let tileOrder = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -25,10 +25,8 @@ $(document).ready(function() {
             for (let i = 0; i < tiles.length; i++) {
                 tiles[i].style.order = tileOrder[i];
             }
-        }
-
+    }
     shuffleTiles();
-
     // Déplacer un morceau de logo lorsque l'utilisateur clique dessus
     grid.addEventListener("click", e => {
         if (e.target.classList.contains("tile") && e.target !== emptyTile) {
@@ -53,10 +51,18 @@ $(document).ready(function() {
         }
     }
 
+    grid.addEventListener("click", e => {
+        if (e.target.classList.contains("tile") && e.target !== emptyTile) {
+        e.target.style.order = emptyTile.style.order;
+        emptyTile.style.order = tileOrder[tiles.indexOf(e.target)];
+        checkForWin();
+        }
+    });
+
     // Redémarrer le jeu
     restartBtn.addEventListener("click", () => {
         shuffleTiles();
-        restartBtn.style.display = "none";
-    });
+        restartBtn.style.display = "block";
+    }); 
 
 }); // Fin du document ready

@@ -13,13 +13,13 @@
 <div id="game">
     <div class="grid">
         <div class="tile"><img src="img/logo1.png" alt="logo1"></div>
-        <div class="tile"><img src="img/logo2.png" alt="logo1"></div>
-        <div class="tile"><img src="img/logo3.png" alt="logo1"></div>
-        <div class="tile"><img src="img/logo4.png" alt="logo1"></div>
-        <div class="tile"><img src="img/logo5.png" alt="logo1"></div>
-        <div class="tile"><img src="img/logo6.png" alt="logo1"></div>
-        <div class="tile"><img src="img/logo7.png" alt="logo1"></div>
-        <div class="tile"><img src="img/logo8.png" alt="logo1"></div>
+        <div class="tile"><img src="img/logo2.png" alt="logo2"></div>
+        <div class="tile"><img src="img/logo3.png" alt="logo3"></div>
+        <div class="tile"><img src="img/logo4.png" alt="logo4"></div>
+        <div class="tile"><img src="img/logo5.png" alt="logo5"></div>
+        <div class="tile"><img src="img/logo6.png" alt="logo6"></div>
+        <div class="tile"><img src="img/logo7.png" alt="logo7"></div>
+        <div class="tile"><img src="img/logo8.png" alt="logo8"></div>
         <div class="tile empty"></div>
     </div>
     <button id="restartBtn">Recommencer</button>

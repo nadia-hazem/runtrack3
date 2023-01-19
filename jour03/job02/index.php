@@ -8,15 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <style>
-        img {
-            width: 100%;
-            height: auto;
-            margin: 1px;
-        }
+
         .row {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
         }
         .col {
             display: flex;
@@ -27,41 +21,33 @@
             width: 50%;
         }
         button {
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            max-height: 100%;
-            margin: 10px;
+            width: 130px;
+            height: 50px;
+            font-size: 1.5em;
+            margin: auto;
         }
-        .rainbow-container {
-            border: 1px solid black;
-            max-height: 300px;
-            margin: 0.5em;
-        }
-        #selectedImages {
-            border: 1px solid black;
-            min-height: 300px;
-            margin: 0.5em;
 
-        }
     </style>
 </head>
 <body>
     <div class="row">
-        <div id="rainbow-container" class="rainbow-container row flex50">
-            <img src="img/arc1.png" alt="rainbow1">
-            <img src="img/arc2.png" alt="rainbow2">
-            <img src="img/arc3.png" alt="rainbow3">
-            <img src="img/arc4.png" alt="rainbow4">
-            <img src="img/arc5.png" alt="rainbow5">
-            <img src="img/arc6.png" alt="rainbow6">        
-        </div> <!-- /col rainbow-container -->
+        <div class="col">
+            <div id="rainbowContainer" class="rainbowContainer flex50 row">
+                <img src="img/arc1.png" alt="rainbow1" id="arc1">
+                <img src="img/arc2.png" alt="rainbow2" id="arc2">
+                <img src="img/arc3.png" alt="rainbow3" id="arc3">
+                <img src="img/arc4.png" alt="rainbow4" id="arc4">
+                <img src="img/arc5.png" alt="rainbow5" id="arc5">
+                <img src="img/arc6.png" alt="rainbow6" id="arc6">        
+            </div>
+            <div id="selectedContainer" class="flex50 row"></div>
+        </div>
+        <div class="col">
+            <button id="shuffleBtn">Mélanger</button>
+            <div id="message"></div> 
+        </div>
+    </div>
 
-        <div id="selectedImages" class="selected row flex50"> </div>
-    </div> <!-- /row -->
-    <div class="col">
-        <button id="shuffle-button">Mélanger</button>
-        <div id="message"></div>
-    </div> <!-- /col -->
+
 </body>
 </html>

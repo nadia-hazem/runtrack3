@@ -1,26 +1,47 @@
+// Jour03 - Job02 - JQuery sort game 'Rainbow'
+///////////////////////////////////////////
+
+// Dans cet exercice, 6 images s’assemblent pour former un arc-en-ciel, il vous faudra les mélanger puis les remettre en ordre.
+// Le but de ce job sera dans un premier temps de créer une balise <button>. Cette balise servira à mélanger l’ensemble des images de l’arc-en-ciel.
+// Par la suite, vous devrez faire en sorte qu’il soit possible de remettre les images dans le bon ordre, en utilisant un ou plusieurs conteneurs.
+// Une fois que les 6 images sont ordonnées, un message s’affiche en dessous :
+// Si l'arc-en-ciel est bien reconstitué, le message “Vous avez gagné” s’affiche en vert.
+// Sinon, le message “Vous avez perdu” s’affiche en rouge.
+
 $(document).ready(function() {
     // On récupère les images
     let images = $("#rainbowContainer img");
+    // On crée un tableau pour stocker les images sélectionnées
     let selectedImages = [];
+    // On indique l'ordre correct des images
     let correctOrder = ["arc1", "arc2", "arc3", "arc4", "arc5", "arc6"];
+    let isOrderCorrect = true;
 
     function reset() {
+        // On remet les images dans le conteneur
         images.appendTo("#rainbowContainer");
+        // On vide le conteneur des images sélectionnées
         $("#selectedContainer").empty();
+        // On vide le tableau des images sélectionnées
         selectedImages = [];
-        $("#message").text("");
+        // On vide le message
+        $("#message").empty();
     }
     // On mélange les images
     $("#shuffleBtn").click(function() {
+        // On reset le message
+        $("#message").empty();
+        // On mélange les images avec 'sort'
         images.sort(function() {
             return 0.5 - Math.random();
         });
+        // On ajoute les images dans le conteneur
         images.appendTo("#rainbowContainer");
     });
-    // On ajoute les images sélectionnées dans le conteneur
+    // On ajoute un écouteur d'événement sur le conteneur des images
     $("#rainbowContainer").on("click", "img", function() {
         // On récupère le nom de l'image
-        let selectedImage = this.src.split("/").pop().split(".")[0];
+        let selectedImage = this.id;
         // On ajoute l'image dans le tableau
         selectedImages.push(selectedImage);
         $(this).appendTo("#selectedContainer");

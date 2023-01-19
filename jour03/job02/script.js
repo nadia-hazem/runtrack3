@@ -1,5 +1,5 @@
 // Jour03 - Job02 - JQuery sort game 'Rainbow'
-///////////////////////////////////////////
+//////////////////////////////////////////////
 
 // Dans cet exercice, 6 images s’assemblent pour former un arc-en-ciel, il vous faudra les mélanger puis les remettre en ordre.
 // Le but de ce job sera dans un premier temps de créer une balise <button>. Cette balise servira à mélanger l’ensemble des images de l’arc-en-ciel.
@@ -9,6 +9,42 @@
 // Sinon, le message “Vous avez perdu” s’affiche en rouge.
 
 $(document).ready(function() {
+
+    // CSS
+    $(document).ready(function() {
+        // styles css
+        $("#selectedContainer").css({
+            "min-height": "300px"
+        });
+        $("#rainbowContainer, #selectedContainer").css({
+            "display": "flex",
+            "flex": 1,
+            "overflow": "hidden",
+            "border": "1px solid black",
+            "margin": "2em",
+            "max-width": "45%",
+            "justify-content": "center",
+            "margin": "auto",
+            "text-align": "center"
+        });
+        $("img").css({
+            "width": "100px",
+            "height": "auto",
+            "margin": "1px",
+            "cursor": "pointer"
+        });
+        $("button").css({
+            "margin": "1rem auto",
+            "width": "120px",
+            "height": "50px"
+        });
+        $(".message").css({
+            "margin": "2em"
+        });
+    });
+    
+    
+
     // On récupère les images
     let images = $("#rainbowContainer img");
     // On crée un tableau pour stocker les images sélectionnées

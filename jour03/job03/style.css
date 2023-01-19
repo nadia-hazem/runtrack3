@@ -1,0 +1,28 @@
+/*** CSS ***/
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+.tile {
+    width: 100px;
+    height: 100px;
+}
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.empty {
+    background-color: transparent;
+}
+#restartBtn {
+    margin-top: 10px;
+}

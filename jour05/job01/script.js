@@ -15,120 +15,152 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const div = document.querySelector("#displayData");
-    const registerBtn = document.querySelector("#registerBtn");
     const loginBtn = document.querySelector("#loginBtn");
+    const registerBtn = document.querySelector("#registerBtn");
+    const displayData = document.querySelector("#displayData");
 
-    document.getElementById("registerBtn").addEventListener("click", () =>{
+    // Display the login form when the "Connexion" button is clicked
+    loginBtn.addEventListener("click", () => {
+        document.querySelector("#displayData").innerHTML = `
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Se connecter</button>
+        </form>`;
 
-        fetch("register.php", {
-            method: "POST",
-            body: "#formData",
-        })
-        .then((response) => response.text())
-        .then((data) => {
-            div.innerHTML = data;
-            console.log(data);
+                // Add a submit event listener to the login form
+                const loginForm = document.querySelector("#loginForm");
+                loginForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
 
-        // Formulaire
-        const regForm = document.querySelector("#registerForm");
+                    // Get the form data
+                    const email = loginForm.querySelector("#email").value;
+                    const password = loginForm.querySelector("#password").value;
 
-        regForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
+                    // Send the form data to the PHP script
+                    const formData = new FormData(loginForm);
+                    const response = await fetch("connexion.php", {
+                        method: "POST",
+                        body: formData
+                    });
 
-            // Validate the form's input
-            const nom = regForm.querySelector("#nom").value;
-            const prenom = regForm.querySelector("#prenom").value;
-            const email = regForm.querySelector("#email").value;
-            const password = regForm.querySelector("#password").value;
-            const password2 = regForm.querySelector("#password2").value;
-            let error = false;
-            let errorMessage = "";
-
-        // Vérifier que tous les champs sont remplis
-        if (!prenom || !nom || !email || !password || !password2) {
-            displayError("Veuillez remplir tous les champs.");
-            return;
-        }
-        if (!prenom) {
-            displayError("Le prénom est requis.");
-        } else if (!nom) {
-            displayError("Le nom est requis.");
-        } else if (!email) {
-            displayError("L'email est requis.");
-        } else if (!password) {
-            displayError("Le mot de passe est requis.");
-        } else if (!password2) {
-            displayError("La confirmation du mot de passe est requise.");
-        } else if (password !== password2) {
-            // Vérifier que les mots de passe correspondent
-            displayError("Les mots de passe ne correspondent pas.");
-        } else if (password.length < 8) {
-            // Vérifier que le mot de passe fait au moins 8 caractères
-            displayError("Le mot de passe doit contenir au moins 8 caractères.");
-        } else {
-            // Vérifier que l'email est au bon format
-            const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (!emailRegex.test(email)) {
-                displayError("L'email n'est pas valide.");
-            } else {
-                // Vérifier que l'email n'est pas déjà utilisé
-                fetch("check-email.php?email=" + email)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.emailExists) {
-                            displayError("L'email est déjà utilisé.");
-                        } else {
-                        // Toutes les validations faites, on peut envoyer les données au serveur
-                        fetch("register.php", {
-                            method: "POST",
-                            body: JSON.stringify({
-                                prenom: prenom,
-                                nom: nom,
-                                email: email,
-                                password: password
-                            }),
-                            headers: {
-                                "Content-Type": "application/json"
-                            }
-                        })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            if (data.success) {
-                                // Rediriger vers la page login si l'inscription est réussie
-                                window.location.href = "login.php";
-                            } else {
-                                displayError("Une erreur s'est produite lors de l'inscription.");
-                            }
-                        })
-                        .catch((err) => console.log(err));
+                    // Handle the response
+                    const data = await response.json();
+                    if (data.success) {
+                        // If the login was successful, redirect the user to the homepage
+                        window.location.href = "index.php";
+                    } else {
+                        // Display an error message
+                        const errorDisplay = document.querySelector("#errorDisplay");
+                        errorDisplay.innerHTML = "Identifiants incorrects.";
                     }
-                })
-                .catch((err) => console.log(err));
-            }
-        }
-        // Envoyer les données au serveur
-        fetch("register.php", {
-            method: "POST",
-            body: JSON.stringify({
-                prenom: prenom,
-                nom: nom,
-                email: email,
-                password: password
-            }),
-            headers: { "Content-Type": "application/json" }
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.success) {
-                    // Rediriger vers la page login si l'inscription est réussie
-                    window.location.href = "login.php";
-                } else {
-                    displayError("Une erreur s'est produite lors de l'inscription.");
-                }
-            });
-        });
+                });
+    });
+    
+
+    // Display the register form when the "Inscription" button is clicked
+    document.getElementById("registerBtn").addEventListener("click", () => {
+        displayData.innerHTML = `
+            <form id="registerForm">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password">
+                <label for="password2">Confirmation du mot de passe</label>
+                <input type="password" id="password2" name="password2">
+                <input type="submit" value="Inscription">
+            </form>
+            <div id="errorDisplay"></div>
+            `;
+                // Add a submit event listener to the register form
+                const registerForm = document.querySelector("#registerForm");
+                registerForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+
+                    // Get the form data
+                    const nom = registerForm.querySelector("#nom").value;
+                    const prenom = registerForm.querySelector("#prenom").value;
+                    const email = registerForm.querySelector("#email").value;
+                    const password = registerForm.querySelector("#password").value;
+                    const password2 = registerForm.querySelector("#password2").value;
+                    let error = false;
+                    let errorMessage = "";
+
+                    // Validate the form's input
+                    if (!prenom || !nom || !email || !password || !password2) {
+                        errorMessage += "Veuillez remplir tous les champs.<br>";
+                        error = true;
+                    }
+                    if (!prenom) {
+                        errorMessage += "Le prénom est requis.<br>";
+                        error = true;
+                    } else if (!nom) {
+                        errorMessage += "Le nom est requis.<br>";
+                        error = true;
+                    } else if (!email) {
+                        errorMessage += "L'email est requis.<br>";
+                        error = true;
+                    } else if (!password) {
+                        errorMessage += "Le mot de passe est requis.<br>";
+                        error = true;
+                    } else if (!password2) {
+                        errorMessage += "La confirmation du mot de passe est requise.<br>";
+                        error = true;
+                    } else if (password !== password2) {
+                        // Check that the passwords match
+                        errorMessage += "Les mots de passe ne correspondent pas.<br>";
+                        error = true;
+                    } else if (password.length < 8) {
+                        // Check that the password is at least 8 characters long
+                        errorMessage += "Le mot de passe doit contenir au moins 8 caractères.<br>";
+                        error = true;
+                    } else {
+                        // Check that the email is in the correct format
+                        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        if (!emailRegex.test(email)) {
+                            errorMessage += "L'email n'est pas au bon format.<br>";
+                            error = true;
+                        } else {
+                            // Check that the email is not already in use
+                            const emailCheck = await fetch("check-email.php?email=" + email);
+                            const emailCheckJson = await emailCheck.json();
+                            if (emailCheckJson.emailExists) {
+                                errorMessage += "L'email est déjà utilisé.<br>";
+                                error = true;
+                            }
+                        }
+                    }
+
+                    // Display any errors
+                    if (error) {
+                        errorDisplay.innerHTML = errorMessage;
+                    } else {
+                        // If there are no errors, send the form data to the server
+                        const formData = new FormData(registerForm);
+                        const registerResponse = await fetch("register.php", {
+                            method: "POST",
+                            body: formData
+                        });
+                        const registerJson = await registerResponse.json();
+
+                        // Handle the response
+                        if (registerJson.success) {
+                            // If the registration was successful, redirect the user to the login page
+                            window.location = "connexion.php";
+                        } else {
+                            // Display an error message
+                            errorDisplay.innerHTML = "Une erreur est survenue.";
+                        }
+                    }
+                });
+            
     });
 });
-});
+
 

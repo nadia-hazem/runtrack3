@@ -29,9 +29,9 @@ $(document).ready(function() {
     shuffleTiles();
     // Déplacer un morceau de logo lorsque l'utilisateur clique dessus
     grid.addEventListener("click", e => {
-        if (e.target.classList.contains("tile") && e.target !== emptyTile) {
+        if (e.target.classList.contains("tile") && e.target !== emptyTile && e.target.style.order-1 == emptyTile.style.order || e.target.style.order+1 == emptyTile.style.order || e.target.style.order-3 == emptyTile.style.order || e.target.style.order+3 == emptyTile.style.order) {
             e.target.style.order = emptyTile.style.order;
-            emptyTile.style.order = tileOrder[tiles.indexOf(e.target)];
+            emptyTile.style.order = e.target.style.order
             checkForWin();
         }
     });
@@ -44,25 +44,17 @@ $(document).ready(function() {
             win = false;
             break;
             }
+            
         }
         if (win) {
             alert("Vous avez gagné!");
-            restartBtn.style.display = "block";
+            restartBtn.style.display = "none";
         }
     }
-
-    grid.addEventListener("click", e => {
-        if (e.target.classList.contains("tile") && e.target !== emptyTile) {
-        e.target.style.order = emptyTile.style.order;
-        emptyTile.style.order = tileOrder[tiles.indexOf(e.target)];
-        checkForWin();
-        }
-    });
 
     // Redémarrer le jeu
     restartBtn.addEventListener("click", () => {
         shuffleTiles();
         restartBtn.style.display = "block";
     }); 
-
 }); // Fin du document ready

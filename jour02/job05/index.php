@@ -9,11 +9,8 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Fonction "Dégradé de couleurs au scroll" </h1>
-    </div>
+    <h1>Fonction "Dégradé de couleurs au scroll" </h1>
     <footer>
-
     </footer>
 </body>
 </html>

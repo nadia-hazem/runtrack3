@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Créez une fonction “sommenombrespremiers” qui prend en paramètres deux variables. Si ces deux variables sont des nombres premiers, alors la fonction retourne leur somme. Sinon, la fonction retourne false. -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jour01 - Job08 - Function "Sommenombrespremiers"</title>
+    <title>Jour01 - Job08 - Fonction "Sommenombrespremiers"</title>
     <!-- Appeler le fichier script.js dans la balise head. -->
     <script src="script.js"></script>
-     <style>
+    <style>
         body {
             background-color: #f2f2f2;
         }
+        h1 {text-align: center;}
         .container {
             position: absolute;
             top: 50%;
@@ -24,10 +26,10 @@
             justify-content: center;
         }
         form label {
-            margin: 10px;
+            margin: 5px;
         }
         form input {
-            margin: 10px;
+            margin: 5px;
         }
         form input[type="submit"] {
             width: 100px;
@@ -54,11 +56,10 @@
             margin: 5rem auto 0;
             text-align: center;
         }  
-
     </style> 
-    <!-- Créez une fonction “sommenombrespremiers” qui prend en paramètres deux variables. Si ces deux variables sont des nombres premiers, alors la fonction retourne leur somme. Sinon, la fonction retourne false. -->
 </head>
 <body>
+    <h1>Fonction "Sommenombrespremiers"</h1>
     <div class="container">
         <form id="form">
             <label for="nombre1">Nombre 1:</label>

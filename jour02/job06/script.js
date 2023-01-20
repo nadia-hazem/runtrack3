@@ -120,6 +120,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const menuList = document.createElement("ul");
                 menuList.style.listStyleType = "none";
                 menuList.style.marginTop = "3em";
+                menuList.style.display = "flex";
+                menuList.style.justifyContent = "space-between";
 
                 const link1 = document.createElement("li");
                 link1.style.display = "inline-block";

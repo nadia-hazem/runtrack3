@@ -7,8 +7,10 @@
     <title>Jour04 - Job02 “jsonValueKey()”</title>
     
 </head>
-<body>
-    <div id="output"> </div>
+<body style="text-align: center;">
+    <h1 style="text-align:center;">“ jsonValueKey() ”</h1>
+    <div id="output"></div>
+    
 
     <!-- Placé ici il sera lu après chargement de la div output et ne renverra pas d'erreur -->
     <script src="script.js"></script>

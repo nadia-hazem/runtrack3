@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jour03 - Job03 - Jeu du Taquin JQuery</title>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,6 +25,6 @@
 </div>
 
     
-
+    <script src="script.js"></script>
 </body>
 </html>

@@ -32,7 +32,9 @@
         border-radius: 5px; 
         cursor: pointer;
     }
-
+    #button:hover { background-color: #008000ad; transition: ease-in-out .5;}
+    #button.active:hover { background-color: #666;}
+    #button.active { background-color: #333;}
     </style>
 </head>
 <body>

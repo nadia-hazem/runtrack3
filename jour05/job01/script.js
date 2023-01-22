@@ -69,21 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         /* console.log(response); */
 
         // Handle the response
-        .then((response) => response.text())
-            .then((response) => {
-            console.log(response);
-            if (response === "0") {
-                error.innerHTML = "Mot de passe incorrect";
-                validation = false;
-            } else {
-                error.innerHTML = "";
-                validation = true;
-                Header("Location: index.php");
-            }
-            })
-            .catch((error) => console.log(error));
-        
-        /* const data = await response.text();
+        const data = await response.text();
         if (!data.success) {
             let errorsHTML = "";
             let errors = JSON.parse(data.errors);
@@ -107,6 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Redirect to index.php
                 window.location.href = "index.php";
             }
-        } */
+        }
     });
 });

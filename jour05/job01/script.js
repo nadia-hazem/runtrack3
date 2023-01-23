@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = await response.text();
         if (!data.success) {
             let errorsHTML = "";
-            let errors = JSON.parse(data.errors);
+            /* let errors = JSON.parse(data.errors); */
             if (Array.isArray(errors)) {
                 errors.forEach(function(error) {
                     errorsHTML += `<p>${error}</p>`;

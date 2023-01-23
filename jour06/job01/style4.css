@@ -1,0 +1,8 @@
+/*  ● style4.css : modifie la couleur du background en #ffffff. 
+    ● style4.css lorsqu’elle est inférieure à 1280px. */
+
+@media screen and (max-width: 1280px) {
+    body {
+        background-color: #ffffff;
+    }
+}

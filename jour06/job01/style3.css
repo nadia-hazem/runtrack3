@@ -1,8 +1,4 @@
 /*  ● style3.css : modifie la couleur du background en #275fa0.
     ● style3.css entre 1280px et 1680px, */
 
-@media screen and (min-width: 1280px) and (max-width: 1680px) {
-    body {
-        background-color: #275fa0;
-    }
-}
+body {background-color: #275fa0;}

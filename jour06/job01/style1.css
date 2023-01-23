@@ -1,8 +1,8 @@
 /*  ● style1.css : modifie la couleur du background en #88c1d0.
     ● style1.css par défaut,*/
 
-body {
-    background-color: #88c1d0;
-}
+body {background-color: #88c1d0;}
+h1 {color: #ffffff; text-align: center; margin-top: 30vh;}
+p {color: #ffffff; text-align: center;}
 
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jour08 - Job02 - Tailwind header</title>
+    <title>Jour08 - Job03 - Tailwind form</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -23,9 +23,8 @@
     </header>
 
     <main>
-        <h1>Traitement du header menu avec le Framework Tailwind</h1>
-            <p>Reprenez votre fichier index.php. Incluez le CDN de Tailwind, ou installez le framework dans votre projet en utilisant la CLI Tailwind. Sans utiliser de fichier css, ajouter des classes tailwind à votre header de sorte à ce qu’il soit coloré et aligné.</p>
-            <br><br>
+        <h1>Traitement du Footer avec le Framework Tailwind</h1>
+        <p>Reprenez votre fichier index.php. Toujours sans utiliser de fichier css, ajouter des classes tailwind à votre footer afin de le rendre coloré et aligné.
             <form>
                 <div>
                     <label for="civility">Civilité:</label>
@@ -69,13 +68,21 @@
             </form>
     </main>
 
-    <footer>
+    <footer class="bg-indigo-800 text-white text-center p-4">
         <nav>
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="index.php">Inscription</a></li>
-                <li><a href="index.php">Connexion</a></li>
-                <li><a href="index.php">Rechercher</a></li>
+            <ul class="inline-flex">
+                <li class="mr-6">
+                    <a href="index.php" class="text-indigo-300 hover:text-white">Accueil</a>
+                </li>
+                <li class="mr-6">
+                    <a href="index.php" class="text-indigo-300 hover:text-white">Inscription</a>
+                </li>
+                <li class="mr-6">
+                    <a href="index.php" class="text-indigo-300 hover:text-white">Connexion</a>
+                </li>
+                <li class="mr-6">
+                    <a href="index.php" class="text-indigo-300 hover:text-white">Rechercher</a>
+                </li>
             </ul>  
         </nav>
     </footer>

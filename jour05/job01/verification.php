@@ -61,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute();
 
             // Retourner une réponse de succès au client
-            echo json_encode(array("success" => true, "message" => "Utilisateur enregistré avec succès"));
+            echo "Utilisateur enregistré avec succès";
             // Redirection vers la page de connexion
             header('Location: connexion.php');
             exit();
         } else {
         // Retourner une réponse d'erreur au client
-        echo json_encode(array("success" => false, "errors" => json_encode($errors)));
-        exit();
+            echo "Erreur d'enregistrement";
+            exit();
         }
 
         //////////////////////////////////////////////////////////////////
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $stmt->fetch();
             if(password_verify($_POST['password'], $user['password'])) {
                 $_SESSION['user'] = $user['email'];
-                echo json_encode(array("success" => true, "name" => $user['prenom']));
+                echo "Connexion réussie";
                 exit();
             } else {
                 $errors['password'] = "Mot de passe incorrect";
@@ -112,12 +112,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (count($errors) == 0) {
             // Retourner une réponse de succès au client
-            echo json_encode(array("success" => true, "message" => "Utilisateur connecté avec succès"));
+            echo "Utilisateur connecté avec succès";
             header('Location: index.php');
             exit();
         } else {
             // Retourner une réponse d'erreur au client
-            echo json_encode(array("success" => false, "errors" => json_encode($errors)));
+            echo "Erreur de connexion";
             exit();
         }
         // Fin de la validation de la connexion

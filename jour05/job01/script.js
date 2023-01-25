@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginBtn = document.querySelector("#loginBtn");
     const registerBtn = document.querySelector("#registerBtn");
     const displayData = document.querySelector("#displayData");
+
     
     //Ajouter un écouteur d'événement au clic sur le bouton "S'inscrire"
     registerBtn.addEventListener("click", (e) => {
@@ -38,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch("inscription.php")
         .then(response => response.text())
         .then(data => {
-            // Insert the fetched form into the displayData div
             document.querySelector("#formData").innerHTML = data;
         });
     });
@@ -70,23 +70,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Handle the response
         const data = await response.text();
-        if (!data.success) {
-            let errorsHTML = "";
-            /* let errors = JSON.parse(data.errors); */
-            if (Array.isArray(errors)) {
-                errors.forEach(function(error) {
-                    errorsHTML += `<p>${error}</p>`;
-                });
+        if(data != "Utilisateur enregistré avec succès") {
+            // Insert the fetched form into the displayData div
+            document.querySelector("#errorDisplay").innerHTML = "Erreur lors de l'enregistrement de l'utilisateur"
             } else {
-                errorsHTML = errors;
+                document.querySelector("#errorDisplay").innerHTML = "Utilisateur enregistré avec succès";
+                windows.location.href = "connexion.php";
             }
-            const errorDisplay = document.querySelector("#errorDisplay");
-            errorDisplay.innerHTML = errorsHTML;
-        }
+        const errorDisplay = document.querySelector("#errorDisplay");
+        errorDisplay.innerHTML = data;
+
         if (data.success) {
             if (data.action === "register") {
                 // If the registration was successful, show a message
                 document.querySelector("#formData").innerHTML = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
+                // Redirect to connexion.php
+                window.location.href = "connexion.php";
             } else if (data.action === "login") {
                 // If the login was successful, show a message
                 document.querySelector("#formData").innerHTML = `Bonjour ${data.name} !`;

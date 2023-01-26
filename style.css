@@ -1,14 +1,69 @@
 /*** RUNTRACK03 ***/
-
+body#runtrack3 {
+    background: url(javascript.jpg) no-repeat center center fixed;
+    filter: opacity(0.8);
+}
+a {
+    text-decoration: none;
+    line-height: 2em;
+    text-align: center;
+}
+p {
+    text-align: center;
+    color: #fff;
+    padding: 0; 
+    margin: 0; 
+}
+h3 { 
+    margin: 0;
+    text-align: center;
+}
+h1 {
+    color: #5cadc0;
+    font-weight: 600;
+    text-align: center!important;
+    font-size: 4em;
+    line-height: 1.5em;
+    text-shadow: 0 0 5px #000;
+}
+h3 {
+    font-size: 2rem;
+    color: #F9DD3C;
+    font-weight: 600;
+    text-align: center;
+}
+span {
+    color: #000;
+    font-size: small;
+    line-height: 11px;
+}
 .container {
     width: 100%;
     max-width: 1200px;
-    display: flex;
-    flex-wrap: wrap;    
+    display: flex;  
+    justify-content: space-between;
     margin: 0 auto;
     padding: 0 20px;
 }
-.jobs {
+.row {
+    display: flex;
+}
+.col {
     display: flex;
     flex-direction: column;
+    align-content: center;
+    padding: 0 10px;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.card {
+    width: 100%;
+    min-width: 60px;
+    margin: 0.5rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px #ccc;
 }

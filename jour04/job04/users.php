@@ -5,15 +5,15 @@
 // Requête SQL pour récupérer les utilisateurs
 
 // Connexion à la base de données
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$dbname = "utilisateurs";
+$host = "localhost";
+$username = "nadia-hazem";
+$password = "*dbpassword*";
+$dbname = "nadia-hazem_utilisateurs";
 
 // Créer connexion
-$pdo = new PDO('mysql:host=localhost;dbname=utilisateurs', 'root', '');
+$pdo = new PDO('mysql:host='.$host.';dbname='.$dbname, $username, $password);
 // Récupération des utilisateurs dans la base de données
-$query = $pdo->query('SELECT * FROM utilisateurs');
+$query = $pdo->query('SELECT * FROM `utilisateurs`');
 $utilisateurs = $query->fetchAll(PDO::FETCH_ASSOC);
 // Affichage du résultat en JSON
 echo json_encode($utilisateurs);

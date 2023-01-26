@@ -13,6 +13,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            min-height: 300px;
         }
     </style>
 </head>
